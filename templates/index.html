@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forecast Model</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+            <h4>Bakery  Sales Forecasting Simulation</h4>
+            <div class="download">
+                <a href="/download" class="download-link">
+                    <i class="fas fa-download"></i>
+                    <span>Download</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="left-panel">
+        <div class="configurations">
+            <div class="configurations-header">
+                <div class="configurations-title">  
+                    <h4>CONFIGURATIONS</h4>
+                </div>  
+            </div>
+
+            <div class="bar-placeholder1">
+                <div class="bar"></div>
+            </div>
+
+            <div class="configurations-body">
+                <form action="/submit" method="post" class="form">
+                    <div class="select-container">
+                        <div class="select-type">
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                            <div class="circle3"></div>
+                            <div class="circle4"></div>
+                            <label for="bread" class="form-label">Select Bread Type:</label>
+                        </div>
+                        <select id="bread" name="bread" class="form-select">
+                            <option value="TRADITIONAL BAGUETTE">Traditional Baguette</option>
+                            <option value="CROISSANT">Croissant</option>
+                            <option value="PAIN AU CHOCOLAT">Pain Au Chocolat</option>
+                            <option value="COUPE">Coupe</option>
+                            <option value="BANETTE">Banette</option>
+                            <option value="BAGUETTE">Baguette</option>
+                        </select>
+                    </div>
+                    <div class="bar-placeholder2">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                    </div>
+                    <div class="start">
+                        <div class="start-header">
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                            <div class="circle3"></div>
+                            <div class="circle4"></div>
+                            <label for="start-date" class="form-label">Start Date:</label>
+                        </div>
+                        <input type="date" id="start-date" name="start-date" class="form-input">
+                    </div>
+                    <div class="bar-placeholder3">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                    </div>
+                    <div class="end">
+                        <div class="end-header">
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                            <div class="circle3"></div>
+                            <div class="circle4"></div>
+                            <label for="end-date" class="form-label">End Date:</label>
+                        </div>
+                        <input type="date" id="end-date" name="end-date" class="form-input">
+                    </div>
+                <div class="bar-placeholder3">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                </div>
+                <div class="buttons">
+                    <div class="button-container">
+                        <button type="submit" class="button">Submit</button>
+                        <input type="reset" value="Clear" class="button">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="forecast">
+            <div class="forecast-title">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+                <h4>Bread Sales Graph Forecast</h4>
+            </div>
+            <div class="forecast-graph">
+                <img src="static/images/my_plot.png" alt="Graph">
+            </div>
+        </div>
+        <img src="static/images/clear.png" alt="Bread" class="bread-image">
+    </div>
+</body>
+</html>
