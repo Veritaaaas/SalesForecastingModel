@@ -20,13 +20,17 @@ df.set_index('date', inplace=True)
 
 def predict_model(article, start_date, end_date):
 
+    # searching for the given product
     product = df[df['article'] == article]
 
+    # sampling the quantity data into weekly basis
     weekly_sales = product['Quantity'].resample('W').sum()
 
+    # fitting the data into the model
     model = SARIMAX(weekly_sales, order=(0,0,0), seasonal_order=(0,1,0,52))
     model_fit = model.fit()
     
+    # converting into datetime format
     start_date = datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.strptime(end_date, '%Y-%m-%d')
 
@@ -36,8 +40,8 @@ def predict_model(article, start_date, end_date):
     # Get forecast for the specified date range
     forecast = model_fit.get_forecast(steps=weeks_between)
     
+    # saves the forecast into csv file
     forecast_df = pd.DataFrame(forecast.predicted_mean)
-    print(forecast_df)
     forecast_df = forecast_df.loc[start_date:end_date]
     forecast_df.to_csv('forecast.csv')
 

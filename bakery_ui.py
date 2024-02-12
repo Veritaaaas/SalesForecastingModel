@@ -1,14 +1,15 @@
-from flask import Flask, render_template, request, send_from_directory, send_file
-from statsmodels.tsa.statespace.sarimax import SARIMAX
+from flask import Flask, render_template, request, send_file
 from new_model import predict_model
-from datetime import datetime
 
+# creating the flask application
 app = Flask(__name__)
 
+# default route
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# handles the submit HTTP request
 @app.route('/submit', methods=['POST'])
 def submit():
     article = request.form['bread']
@@ -19,6 +20,7 @@ def submit():
     
     return render_template('index.html')
 
+# used for downloading the csv file
 @app.route('/download')
 def download():
     return send_file('forecast.csv', as_attachment=True)
